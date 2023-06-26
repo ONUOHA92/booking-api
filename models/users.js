@@ -35,6 +35,11 @@ const userSchema = Schema({
         require: [true, 'Your phone number must be 11 digit']
     },
 
+    cart: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'CartItem'
+    }],
+
     data: {
         type: Date,
         default: Date.now()

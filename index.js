@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const { application } = require('express');
 const user = require('./routes/user').router
+const bookRoom = require('./routes/bookRoom').router
+const cartInfo = require('./routes/cart').router
+const paymentinfo = require('./routes/payment').router
 
 
 require('dotenv').config()
@@ -21,6 +24,15 @@ app.use(cors({ origin: '*' }));
 
 //test api  at /api/user/text
 app.use("/api/user", user);
+
+// to book room
+app.use("/api/user", bookRoom)
+
+// to add to cart
+app.use("/api/user", cartInfo)
+
+// payement using paytack
+app.post('/pay', paymentinfo)
 
 
 //to test nodejs app
